@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --doc-height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .App {
+            padding: 0;
+            margin: 0;
+            background-color: orange;
+            width: 100vw;
+            height: 100vh;
+            /* fallback for Js load */
+            height: var(--doc-height);
+        }
+
+        .box {
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="App">
+        <div class="box">
+        </div>
+    </div>
+    <script>
+        // Setting the height of the page (using javascript) with the window.innerheight property.
+        const documentHeight = () => {
+            const doc = document.documentElement
+            doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+            console.log(window.innerHeight);
+        }
+        window.addEventListener(`resize`, documentHeight);
+        documentHeight()
+    </script>
+</body>
+
+</html>
